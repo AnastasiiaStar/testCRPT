@@ -1,0 +1,44 @@
+plugins {
+    // Apply the java-library plugin to add support for Java Library
+    id 'java-library'
+}
+
+group 'StaritskaiaID'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+}
+
+apply plugin: 'project-report'
+
+test {
+//    java {
+//        srcDirs = ["test/java"]  // Note @Peter's comment below
+//            }
+    useJUnitPlatform {
+        includeTags 'fast'
+        excludeTags 'slow'
+    }
+    reports {
+        junitXml.enabled = true
+        html.enabled = true
+
+    }
+}
+
+
+
+
+
+
+
+
+
